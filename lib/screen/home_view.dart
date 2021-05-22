@@ -11,21 +11,40 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        body: Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Numero: ${controller.getNumber()}'),
-          Text('${controller.getIsNumberEven()}'),
+          SizedBox(
+            height: 40,
+            child: Text(
+              'Numero: ${controller.getNumber()}',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 40,
+            child: Text(
+              controller.getIsNumberEven(),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           ElevatedButton(
             onPressed: () {
               setState(() {
-                controller.generatorNumber();
+                controller.validateNumber();
               });
             },
             child: Text('Restart'),
           )
         ],
       ),
-    );
+    ));
   }
 }

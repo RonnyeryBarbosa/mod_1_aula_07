@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:mod_1_aula_07/screen/home_model.dart';
 
 class HomeController {
-  HomeModel _model;
+  final _model = HomeModel();
 
   String getNumber() {
     return _model.number.toString();
@@ -17,8 +17,12 @@ class HomeController {
     _model.verifyNumberEven(generatorNumber, isNumberEven);
   }
 
-  int isNumberEven(int number) {
-    return number % 2;
+  String isNumberEven(int number) {
+    if (number % 2 == 0) {
+      return "Par";
+    } else {
+      return "Impar";
+    }
   }
 
   int generatorNumber() {
